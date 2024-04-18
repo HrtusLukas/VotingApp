@@ -7,35 +7,34 @@ namespace MyFirstApp
     {
 
         string path = @"C:\Users\lukas\OneDrive\Poèítaè\UcimSaC#\MyFirstApp\MyFirstApp\Jsons\candidats.json";
-        
 
-        
+
+
         public Form1()
         {
             InitializeComponent();
-            dataGridView1 = new DataGridView();
-            LoadCandidates();
+
+            // Add dummy data
+            listBox1.Items.Add("Dummy Data 1");
+            listBox1.Items.Add("Dummy Data 2");
+            listBox1.Items.Add("Dummy Data 3");
         }
 
 
-        private void LoadCandidates()
-        {
-            // Naèítajte kandidátov zo súboru JSON
-            var candidates = JsonLoader.LoadCandidatesFromJson(path);
 
-            // Priradenie naèítaných dát do DataGridView
-            dataGridView1.DataSource = candidates;
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var can = JsonLoader.LoadCandidatesFromJson(path);
-        }
+            if (listBox1.SelectedIndex != -1)
+            { 
+                string selectedItem = listBox1.SelectedItem.ToString();
 
-        
+                MessageBox.Show("Selected Item: " + selectedItem);
+            }
+        }
     }
 }

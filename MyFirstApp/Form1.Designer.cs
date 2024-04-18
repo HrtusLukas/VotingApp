@@ -31,72 +31,74 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(619, 336);
+            button1.Location = new Point(542, 252);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(128, 66);
+            button1.Size = new Size(112, 50);
             button1.TabIndex = 0;
             button1.Text = "Vote";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(61, 336);
+            button2.Location = new Point(53, 252);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(128, 66);
+            button2.Size = new Size(112, 50);
             button2.TabIndex = 1;
             button2.Text = "Info";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(619, 73);
+            button3.Location = new Point(542, 55);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(128, 66);
+            button3.Size = new Size(112, 50);
             button3.TabIndex = 2;
             button3.Text = "Stats";
             button3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(61, 73);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(381, 238);
-            dataGridView1.TabIndex = 3;
-            
-            // 
             // textBox1
             // 
-            textBox1.Location = new Point(61, 22);
+            textBox1.Location = new Point(53, 16);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(500, 34);
+            textBox1.Size = new Size(438, 26);
             textBox1.TabIndex = 4;
             textBox1.Text = "Presidential Election- Vote App";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(53, 55);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(112, 184);
+            listBox1.TabIndex = 5;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(listBox1);
             Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,7 +108,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private DataGridView dataGridView1;
         private TextBox textBox1;
+        private ListBox listBox1;
     }
 }
