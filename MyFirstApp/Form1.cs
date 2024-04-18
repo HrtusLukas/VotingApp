@@ -12,29 +12,19 @@ namespace MyFirstApp
         
         public Form1()
         {
-            InitializeComponent();
-            dataGridView1 = new DataGridView();
-            LoadCandidates();
+            InitializeComponent(); 
+            dataGridView1.Columns.Add("name", "name"); //add column
+            dataGridView1.Rows.Add("hello"); //add rows with data
         }
 
 
-        private void LoadCandidates()
-        {
-            // Naèítajte kandidátov zo súboru JSON
-            var candidates = JsonLoader.LoadCandidatesFromJson(path);
 
-            // Priradenie naèítaných dát do DataGridView
-            dataGridView1.DataSource = candidates;
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var can = JsonLoader.LoadCandidatesFromJson(path);
-        }
+
 
         
     }
