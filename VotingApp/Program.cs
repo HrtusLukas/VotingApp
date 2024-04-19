@@ -1,4 +1,4 @@
-namespace MyFirstApp
+namespace VotingApp
 {
     internal static class Program
     {
@@ -12,7 +12,6 @@ namespace MyFirstApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
-            
         }
     }
 }

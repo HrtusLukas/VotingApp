@@ -1,1 +1,40 @@
-name: Luk�;
+{
+  "kandidati": [
+    {
+      "meno": "Peter Pellegrini",
+      "strana": "Hlas-SD"
+    },
+    {
+      "meno": "Ivan Korčok",
+      "strana": ""
+    },
+    {
+      "meno": "Štefan Harabin",
+      "strana": ""
+    },
+    {
+      "meno": "Krisztián Forró",
+      "strana": "SZÖVETSÉG – ALIANCIA"
+    },
+    {
+      "meno": "Igor Matovič",
+      "strana": "Hnutie Slovensko"
+    },
+    {
+      "meno": "Patrik Dubovský",
+      "strana": ""
+    },
+    {
+      "meno": "Ján Kubiš",
+      "strana": ""
+    },
+    {
+      "meno": "Milan Náhlik",
+      "strana": ""
+    },
+    {
+      "meno": "Marián Kotleba",
+      "strana":  "ĽSNS"
+    }
+  ]
+}

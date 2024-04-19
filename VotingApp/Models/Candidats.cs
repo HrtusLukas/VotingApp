@@ -13,7 +13,12 @@ namespace MyFirstApp.Models
         [JsonPropertyName("strana")] public string? PoliticalParty { get; set; }
         private int TotalVotes { get; set; }
 
-
+        public Candidats(string name, string? politicalparty) 
+        {
+            Name = name;
+            PoliticalParty = politicalparty;
+        }
 
     }
 }
+
