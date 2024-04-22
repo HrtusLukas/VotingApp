@@ -11,7 +11,7 @@ namespace MyFirstApp.Models
     {
         [JsonPropertyName("name")] public string Name { get; set; }
         [JsonPropertyName("strana")] public string? PoliticalParty { get; set; }
-        private int TotalVotes { get; set; }
+        public int TotalVotes { get; set; }
 
 
 

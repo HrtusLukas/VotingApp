@@ -53,7 +53,6 @@
             button2.TabIndex = 1;
             button2.Text = "Info";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -63,7 +62,6 @@
             button3.TabIndex = 2;
             button3.Text = "Stats";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // textBox1
             // 
@@ -77,11 +75,14 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
+            listBox1.HorizontalScrollbar = true;
+            listBox1.IntegralHeight = false;
             listBox1.ItemHeight = 20;
             listBox1.Location = new Point(61, 73);
             listBox1.Margin = new Padding(3, 4, 3, 4);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(127, 244);
+            listBox1.AutoSize = true;
             listBox1.TabIndex = 5;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
