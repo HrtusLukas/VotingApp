@@ -62,6 +62,7 @@
             button3.TabIndex = 2;
             button3.Text = "Stats";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // textBox1
             // 
@@ -81,8 +82,7 @@
             listBox1.Location = new Point(61, 73);
             listBox1.Margin = new Padding(3, 4, 3, 4);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(127, 244);
-            listBox1.AutoSize = true;
+            listBox1.Size = new Size(300, 244);
             listBox1.TabIndex = 5;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -98,6 +98,7 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

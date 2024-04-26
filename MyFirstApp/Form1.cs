@@ -9,8 +9,9 @@ namespace MyFirstApp
 {
     public partial class Form1 : Form
     {
-        private string path = @"C:\Users\lukas\Source\Repos\VotingApp2\MyFirstApp\Jsons\candidats.json";
-        private List<Candidats> candidatesList = new List<Candidats>();
+        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingApp2\MyFirstApp\Jsons\candidats.json";
+        public List<Candidats> candidatesList = new List<Candidats>();
+        private int lastIdx { get; set; }
 
         public Form1()
         {
@@ -31,16 +32,17 @@ namespace MyFirstApp
                 string jsonString = File.ReadAllText(path);
                 var jsonDocument = JsonDocument.Parse(jsonString);
 
-                // Access the "kandidati" array
+
                 var kandidatiArray = jsonDocument.RootElement.GetProperty("kandidati");
 
-                // Deserialize each candidate object
+
                 foreach (var kandidatJson in kandidatiArray.EnumerateArray())
                 {
                     var kandidat = new Candidats
                     {
-                        Name = kandidatJson.GetProperty("meno").GetString(),
-                        PoliticalParty = kandidatJson.GetProperty("strana").GetString()
+                        Name = kandidatJson.GetProperty("name").GetString(),
+                        PoliticalParty = kandidatJson.GetProperty("strana").GetString(),
+                        TotalVotes = kandidatJson.GetProperty("pocetHlavsov").GetInt32(),
                     };
                     candidatesList.Add(kandidat);
                 }
@@ -58,7 +60,7 @@ namespace MyFirstApp
         private void AddCandidatesToListBox()
         {
             listBox1.Items.Clear();
-            // Add each candidate from the list to the listBox1
+
             foreach (var candidate in candidatesList)
             {
                 listBox1.Items.Add(candidate.Name + "-" + candidate.PoliticalParty);
@@ -67,25 +69,27 @@ namespace MyFirstApp
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Handle selection change event
+            lastIdx = listBox1.SelectedIndex;
         }
 
         private void Form2_YesButtonClicked(object sender, EventArgs e)
         {
+
             int selectedIndex = listBox1.SelectedIndex;
             candidatesList[selectedIndex].TotalVotes++;
-            Console.WriteLine(candidatesList[selectedIndex].TotalVotes);
+
+
         }
 
         private void Form2_NoButtonClicked(object sender, EventArgs e)
         {
-            // Do nothing or add any other action you want to perform when "No" is clicked
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                
+
                 Form2 form2 = new Form2();
                 form2.YesButtonClicked += Form2_YesButtonClicked;
                 form2.NoButtonClicked += Form2_NoButtonClicked;
@@ -97,6 +101,16 @@ namespace MyFirstApp
             }
         }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3(this.candidatesList);
+
+            form3.ShowDialog();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.WriteAllText(path, JsonSerializer.Serialize( new { kandidati = this.candidatesList }));
+        }
     }
 }

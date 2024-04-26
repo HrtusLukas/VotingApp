@@ -20,13 +20,13 @@ namespace MyFirstApp
             InitializeComponent();
             this.Enabled = true;
         }
-        //Yes button
+
         private void button1_Click(object sender, EventArgs e)
         {
             YesButtonClicked?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
-        //No button
+     
         private void button2_Click(object sender, EventArgs e)
         {
             NoButtonClicked?.Invoke(this, EventArgs.Empty);
