@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Forms;
+using static MyFirstApp.Models.Candidats;
 
 namespace MyFirstApp
 {
     public partial class Form1 : Form
     {
-        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingApp2\MyFirstApp\Jsons\candidats.json";
+        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingApp5\MyFirstApp\Jsons\candidats.json";
         public List<Candidats> candidatesList = new List<Candidats>();
+        public List<Detail> details = new List<Detail>();
         private int lastIdx { get; set; }
 
         public Form1()
@@ -43,8 +45,22 @@ namespace MyFirstApp
                         Name = kandidatJson.GetProperty("name").GetString(),
                         PoliticalParty = kandidatJson.GetProperty("strana").GetString(),
                         TotalVotes = kandidatJson.GetProperty("pocetHlavsov").GetInt32(),
+
                     };
+
+
+                    var detailKandidata = kandidatJson.GetProperty("detail");
+
+                    var detail = new Detail
+                    {
+                        BirthDate = detailKandidata.GetProperty("narodenie").GetString(),
+                        Info = detailKandidata.GetProperty("info").GetString()
+                    };
+
+                    kandidat.KandiatDetail = detail;
                     candidatesList.Add(kandidat);
+
+                    
                 }
             }
             catch (FileNotFoundException)
@@ -63,7 +79,14 @@ namespace MyFirstApp
 
             foreach (var candidate in candidatesList)
             {
-                listBox1.Items.Add(candidate.Name + "-" + candidate.PoliticalParty);
+                if (candidate.PoliticalParty == string.Empty)
+                {
+                    listBox1.Items.Add(candidate.Name);
+                }
+                else
+                {
+                    listBox1.Items.Add(candidate.Name + "-" + candidate.PoliticalParty);
+                }
             }
         }
 
@@ -110,7 +133,22 @@ namespace MyFirstApp
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(path, JsonSerializer.Serialize( new { kandidati = this.candidatesList }));
+            File.WriteAllText(path, JsonSerializer.Serialize(new { kandidati = this.candidatesList }));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+
+                Form4 form4 = new Form4(this.candidatesList);
+                form4.ShowCandidateDetail(listBox1.SelectedIndex);
+                form4.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("MusÌö zvoliù kandid·ta!");
+            }
         }
     }
 }
