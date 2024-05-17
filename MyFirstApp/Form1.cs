@@ -10,7 +10,7 @@ namespace MyFirstApp
 {
     public partial class Form1 : Form
     {
-        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingApp5\MyFirstApp\Jsons\candidats.json";
+        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingAppjihi\MyFirstApp\Jsons\candidats.json";
         public List<Candidats> candidatesList = new List<Candidats>();
         public List<Detail> details = new List<Detail>();
         private int lastIdx { get; set; }
@@ -25,6 +25,7 @@ namespace MyFirstApp
         {
             SerializeAndDeserializeCandidates();
             AddCandidatesToListBox();
+
         }
 
         private void SerializeAndDeserializeCandidates()
@@ -54,7 +55,8 @@ namespace MyFirstApp
                     var detail = new Detail
                     {
                         BirthDate = detailKandidata.GetProperty("narodenie").GetString(),
-                        Info = detailKandidata.GetProperty("info").GetString()
+                        Info = detailKandidata.GetProperty("info").GetString(),
+                        ImagePath = detailKandidata.GetProperty("imagePath").GetString()
                     };
 
                     kandidat.KandiatDetail = detail;

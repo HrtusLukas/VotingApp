@@ -27,6 +27,13 @@ namespace MyFirstApp.Models
 
         [JsonPropertyName("info")]
         public string? Info { get; set; }
+
+        //imagePath
+
+
+        [JsonPropertyName("imagePath")]
+        public string ImagePath { get; set; }
+
     }
 
 }

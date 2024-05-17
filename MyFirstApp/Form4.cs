@@ -29,6 +29,10 @@ namespace MyFirstApp
             Candidats selectedCandidate = candidats[selectedIndex];
             label1.Text = selectedCandidate.Name;
             label2.Text = selectedCandidate.KandiatDetail.BirthDate;
+            label3.Text = selectedCandidate.KandiatDetail.Info;
+            pictureBox1.Image = Image.FromFile(selectedCandidate.KandiatDetail.ImagePath);
+
+
         }
 
 
