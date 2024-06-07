@@ -62,7 +62,7 @@ namespace MyFirstApp
                     kandidat.KandiatDetail = detail;
                     candidatesList.Add(kandidat);
 
-                    
+
                 }
             }
             catch (FileNotFoundException)

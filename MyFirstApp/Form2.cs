@@ -26,11 +26,16 @@ namespace MyFirstApp
             YesButtonClicked?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
-     
+
         private void button2_Click(object sender, EventArgs e)
         {
             NoButtonClicked?.Invoke(this, EventArgs.Empty);
             this.Close();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
