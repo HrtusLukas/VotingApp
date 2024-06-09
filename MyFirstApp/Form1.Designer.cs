@@ -74,6 +74,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(500, 33);
             textBox1.TabIndex = 4;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // listBox1
             // 

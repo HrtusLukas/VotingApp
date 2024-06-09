@@ -10,7 +10,7 @@ namespace MyFirstApp
 {
     public partial class Form1 : Form
     {
-        private string path = @"C:\Users\hrtusl21\Source\Repos\VotingAppjihi\MyFirstApp\Jsons\candidats.json";
+        private string path = @"C:\Users\lukas\Source\Repos\VotingAppf\MyFirstApp\Jsons\candidats.json";
         public List<Candidats> candidatesList = new List<Candidats>();
         public List<Detail> details = new List<Detail>();
         private int lastIdx { get; set; }
@@ -19,6 +19,7 @@ namespace MyFirstApp
         {
             InitializeComponent();
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            textBox1.TextChanged += textBox1_TextChanged;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -152,5 +153,24 @@ namespace MyFirstApp
                 MessageBox.Show("MusÌö zvoliù kandid·ta!");
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = textBox1.Text.ToLower();
+            listBox1.Items.Clear();
+
+            foreach (var candidate in candidatesList)
+            {
+                string candidateDisplayName = candidate.PoliticalParty == string.Empty ?
+                    candidate.Name : candidate.Name + "-" + candidate.PoliticalParty;
+
+                if (candidateDisplayName.ToLower().Contains(filterText))
+                {
+                    listBox1.Items.Add(candidateDisplayName);
+                }
+            }
+        }
+
+
     }
 }
